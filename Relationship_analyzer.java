@@ -18,10 +18,12 @@ public class Relationship_analyzer
         System.out.println("Size : "+size);
         // System.out.println("Size : ");
     }
+    public void Actual_friendship(int arr[],int t){
+        
+    }
     public void Calculate(){
-        int start=0,end,i;
+        int start=0,i,track=0;
         int pointer=0;
-        end = size-1;
         char c;
         int count;
         for(i=start;i<size;i++){
@@ -38,10 +40,11 @@ public class Relationship_analyzer
                 }
                 pointer++;
             }
+            track++;
             arr[i]=count;
             System.out.print("  "+arr[i]);
         }
-        
+        Actual_friendship(arr,track);
     }
     
 	public static void main(String[] args) {
