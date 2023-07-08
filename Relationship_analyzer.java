@@ -22,11 +22,9 @@ public class Relationship_analyzer
         int pointer=0;
         int track=0;
         int end_pointer=t-1;
-        System.out.print("\n");
         while (pointer<end_pointer){
             arr[pointer]=arr[pointer]+arr[end_pointer];
             track++;
-            System.out.print(" "+arr[pointer]);
             pointer++;
             end_pointer--;
         }
@@ -40,7 +38,7 @@ public class Relationship_analyzer
         int result = (arr[0]*10)+arr[1];
         return result;
     }
-    public void Calculate(){
+    public int Calculate(){
         int start=0,i,track=0;
         int pointer=0;
         char c;
@@ -61,10 +59,9 @@ public class Relationship_analyzer
             }
             track++;
             arr[i]=count;
-            System.out.print("  "+arr[i]);
         }
         int res=Actual_friendship(arr,track);
-        System.out.println("\nTotal Friendship is : "+res+"%");
+        return res;
     }
     
 	public static void main(String[] args) {
@@ -75,8 +72,18 @@ public class Relationship_analyzer
 		String person_2= sc.nextLine();
 		System.out.print("Calculate Friendship, Love etc : ");
 		String operation = sc.nextLine();
+        operation=operation.toLowerCase();
+        if(operation.startsWith("frien")){
+            operation="friend";
+        }
+        else{
+            operation="love";
+        }
 		Relationship_analyzer obj1 = new Relationship_analyzer(person_1,person_2,operation);
-		obj1.display();
-		obj1.Calculate();
+        if (operation=="friend"){
+            operation="friendship";
+        }
+        System.out.println("----------------------------------------------------------------------------------");
+		System.out.println("Percentage of "+operation+" between "+person_1+" and "+person_2+" is "+((obj1.Calculate())%100)+"%");
 	}
 }
