@@ -38,9 +38,6 @@ public class Relationship_analyzer
         Actual_friendship(arr,track);
         }
         int result = (arr[0]*10)+arr[1];
-        if (result>100){
-            Actual_friendship(arr,track);
-        }
         return result;
     }
     public void Calculate(){
