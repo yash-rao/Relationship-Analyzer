@@ -18,8 +18,30 @@ public class Relationship_analyzer
         System.out.println("Size : "+size);
         // System.out.println("Size : ");
     }
-    public void Actual_friendship(int arr[],int t){
-        
+    public int Actual_friendship(int arr[],int t){
+        int pointer=0;
+        int track=0;
+        int end_pointer=t-1;
+        System.out.print("\n");
+        while (pointer<end_pointer){
+            arr[pointer]=arr[pointer]+arr[end_pointer];
+            track++;
+            System.out.print(" "+arr[pointer]);
+            pointer++;
+            end_pointer--;
+        }
+        if(t%2!=0){
+            arr[pointer]=arr[(t-1)/2];
+            track++;
+        }
+        if(track>2){
+        Actual_friendship(arr,track);
+        }
+        int result = (arr[0]*10)+arr[1];
+        if (result>100){
+            Actual_friendship(arr,track);
+        }
+        return result;
     }
     public void Calculate(){
         int start=0,i,track=0;
@@ -44,7 +66,8 @@ public class Relationship_analyzer
             arr[i]=count;
             System.out.print("  "+arr[i]);
         }
-        Actual_friendship(arr,track);
+        int res=Actual_friendship(arr,track);
+        System.out.println("\nTotal Friendship is : "+res+"%");
     }
     
 	public static void main(String[] args) {
